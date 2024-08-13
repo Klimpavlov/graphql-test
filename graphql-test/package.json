@@ -9,8 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.4",
+    "@apollo/experimental-nextjs-app-support": "^0.11.2",
+    "@radix-ui/react-slot": "^1.1.0",
+    "apollo-server-micro": "^3.13.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "graphql": "^16.9.0",
+    "graphql-request": "^7.1.0",
+    "graphql-tag": "^2.12.6",
+    "http-proxy-middleware": "^3.0.0",
     "lucide-react": "^0.427.0",
     "next": "14.2.5",
     "react": "^18",
