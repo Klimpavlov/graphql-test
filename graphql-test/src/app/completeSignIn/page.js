@@ -12,7 +12,7 @@ export default function CompleteSignIn() {
         try {
             const { data } = await googleLogin({
                 variables: {
-                    code: "4/0AcvDMrCxMSRMOPDAYchhDmBUOsbpHaen80k1OiGK227wvdDAoCA9AXDmcOsyrKWhSh08vg",
+                    code: "4/0AcvDMrBjGVrTWUls0BZhwjekkzyGarIPduXPcLUJ-AoizwNWEOTZGuMLAgzH5MwH7oqCmQ",
                     platform: "ios"
                 }
             });

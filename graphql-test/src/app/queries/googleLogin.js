@@ -1,12 +1,11 @@
 import { gql } from '@apollo/client';
 
 export const GOOGLE_LOGIN = gql`
-
-mutation googleLogin {
-    googleLogin(
-        code: "4/0AcvDMrCxMSRMOPDAYchhDmBUOsbpHaen80k1OiGK227wvdDAoCA9AXDmcOsyrKWhSh08vg"
-        platform: "ios"
-
+    mutation googleLogin {
+  googleLogin(
+    code: "4/0AcvDMrBjGVrTWUls0BZhwjekkzyGarIPduXPcLUJ-AoizwNWEOTZGuMLAgzH5MwH7oqCmQ"
+		platform: "ios"
+   
 ) {
         id
         email

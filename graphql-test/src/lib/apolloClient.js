@@ -1,8 +1,7 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client';
 
 const client = new ApolloClient({
-    uri: 'https://sync-cal.maar.me/api/graphql/',
-
+    uri: 'https://sync-cal.maar.me/api/graphql/query',
     cache: new InMemoryCache()
 });
 

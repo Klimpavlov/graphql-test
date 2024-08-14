@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_GOOGLE_LOGIN_LINK = gql`
-    query getGoogleLoginLink {
+    query GetGoogleLoginLink {
         getGoogleLoginLink(platform: "ios") {
             url
         }
