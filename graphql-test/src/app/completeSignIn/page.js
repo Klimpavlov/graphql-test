@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { useMutation } from '@apollo/client';
-import { GOOGLE_LOGIN } from '/Users/a111/Desktop/graphql-test/graphql-test/src/app/queries/googleLogin'; // Убедитесь, что путь правильный
+import { GOOGLE_LOGIN } from '/Users/a111/Desktop/graphql-test/graphql-test/src/app/queries/googleLogin';
 import { Button } from '@/components/ui/button';
+import client from "@/lib/apolloClient";
 
 export default function CompleteSignIn() {
     const [googleLogin, { data, loading, error }] = useMutation(GOOGLE_LOGIN);
@@ -12,11 +13,14 @@ export default function CompleteSignIn() {
         try {
             const { data } = await googleLogin({
                 variables: {
-                    code: "4/0AcvDMrBjGVrTWUls0BZhwjekkzyGarIPduXPcLUJ-AoizwNWEOTZGuMLAgzH5MwH7oqCmQ",
+                    code: "4/0AcvDMrAPgq0Q58ODvc3kRjH8e49mg3UdtzKjNKv9AYr5UV2AentcnFdeBt166Vpj1GAdFA",
                     platform: "ios"
                 }
             });
             console.log('Login successful:', data);
+            if (data) {
+                localStorage.setItem('accessToken', data.token.accessToken)
+            }
             // Здесь можете обработать ответ или выполнить перенаправление
         } catch (error) {
             console.error('Login error:', error);

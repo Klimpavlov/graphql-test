@@ -3,32 +3,43 @@ import { gql } from '@apollo/client';
 export const GOOGLE_LOGIN = gql`
     mutation googleLogin {
   googleLogin(
-    code: "4/0AcvDMrBjGVrTWUls0BZhwjekkzyGarIPduXPcLUJ-AoizwNWEOTZGuMLAgzH5MwH7oqCmQ"
+    code: "4/0AcvDMrAPgq0Q58ODvc3kRjH8e49mg3UdtzKjNKv9AYr5UV2AentcnFdeBt166Vpj1GAdFA"
 		platform: "ios"
-   
+
 ) {
         id
         email
         name
-        externalAccounts {
-            id
-            provider
-            email
-            name
-            scopes
-        }
         token {
             accessToken
             refreshToken
             tokenType
         }
-        sessions {
-            sessionID
-            userID
-            platform
-            createdAt
-            externalAccountId
-        }
+
     }
 }
-`
+    `
+
+
+
+// import { gql } from '@apollo/client';
+//
+// export const GOOGLE_LOGIN = gql`
+//     mutation googleLogin($code: String!, $platform: String!) {
+//   googleLogin(
+//       code: $code,
+//       platform: $platform
+//
+// ) {
+//         id
+//         email
+//         name
+//         token {
+//             accessToken
+//             refreshToken
+//             tokenType
+//         }
+//
+//     }
+// }
+//     `

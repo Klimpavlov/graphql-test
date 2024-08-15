@@ -1,30 +1,18 @@
 import { gql } from '@apollo/client';
 
 export const GET_USER_INFO = gql`
-query getUserInfo {
-    getUserInfo {
-        id
-        email
-        name
-        externalAccounts {
+    query getUserInfo {
+        getUserInfo {
             id
-            provider
             email
             name
-            scopes
-        }
-        token {
-            accessToken
-            refreshToken
-            tokenType
-        }
-        sessions {
-            sessionID
-            userID
-            platform
-            createdAt
-            externalAccountId
+            sessions {
+                sessionID
+                userID
+                platform
+                createdAt
+                externalAccountId
+            }
         }
     }
-}
 `
