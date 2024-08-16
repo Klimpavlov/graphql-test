@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 export const GOOGLE_LOGIN = gql`
     mutation googleLogin {
   googleLogin(
-    code: "4/0AcvDMrAPgq0Q58ODvc3kRjH8e49mg3UdtzKjNKv9AYr5UV2AentcnFdeBt166Vpj1GAdFA"
+    code: "4/0AcvDMrAyth-_lHYsNjoydtHUQq3X2Bey8UFUDjONUofHoECrFYepMcBtfC8YAR0DSTLR-Q"
 		platform: "ios"
 
 ) {

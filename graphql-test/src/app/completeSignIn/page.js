@@ -13,13 +13,14 @@ export default function CompleteSignIn() {
         try {
             const { data } = await googleLogin({
                 variables: {
-                    code: "4/0AcvDMrAPgq0Q58ODvc3kRjH8e49mg3UdtzKjNKv9AYr5UV2AentcnFdeBt166Vpj1GAdFA",
+                    code: "4/0AcvDMrAyth-_lHYsNjoydtHUQq3X2Bey8UFUDjONUofHoECrFYepMcBtfC8YAR0DSTLR-Q",
                     platform: "ios"
                 }
             });
             console.log('Login successful:', data);
             if (data) {
-                localStorage.setItem('accessToken', data.token.accessToken)
+                console.log(data.googleLogin.token.accessToken)
+                localStorage.setItem('accessToken', data.googleLogin.token.accessToken)
             }
             // Здесь можете обработать ответ или выполнить перенаправление
         } catch (error) {
