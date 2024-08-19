@@ -4,12 +4,10 @@ import { useLazyQuery } from '@apollo/client';
 import { GET_GOOGLE_LOGIN_LINK } from '/Users/a111/Desktop/graphql-test/graphql-test/src/app/queries/getGoogleLoginLink.js';
 import { Button } from '@/components/ui/button';
 import client from '/Users/a111/Desktop/graphql-test/graphql-test/src/lib/apolloClient.js';
-import {useRouter, useSearchParams} from "next/navigation";
+import {RingLoader} from "react-spinners";
 
 export default function Home() {
-    const router = useRouter();
     const [getGoogleLoginLink, { data, loading, error }] = useLazyQuery(GET_GOOGLE_LOGIN_LINK, {
-        variables: { platform: 'web' },
         client
     });
 
@@ -24,8 +22,15 @@ export default function Home() {
         }
     };
 
-    // Conditionally render the loading or error states
-    if (loading) return <p>Loading...</p>;
+    if (loading) return  <div className='flex items-center justify-center h-screen'>
+        <RingLoader
+            color={'#36d7b7'}
+            loading={loading}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+        />
+    </div>;
     if (error) return <p>Error: {error.message}</p>;
 
     return (
