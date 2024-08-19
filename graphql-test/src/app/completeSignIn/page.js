@@ -8,12 +8,14 @@ import client from "@/lib/apolloClient";
 
 export default function CompleteSignIn() {
     const [googleLogin, { data, loading, error }] = useMutation(GOOGLE_LOGIN);
+    const savedCode = localStorage.getItem('google_auth_code');
+    console.log('Saved Google auth code:', savedCode);
 
     const handleLogin = async () => {
         try {
             const { data } = await googleLogin({
                 variables: {
-                    code: "4/0AcvDMrAyth-_lHYsNjoydtHUQq3X2Bey8UFUDjONUofHoECrFYepMcBtfC8YAR0DSTLR-Q",
+                    code: "4/0AQlEd8ymtS7CKVssenGRA33pLRNj3wQN_ArYvQqTjnhgUSrpz9ZVgF_cru4QlNN1ckEECA ",
                     platform: "ios"
                 }
             });
