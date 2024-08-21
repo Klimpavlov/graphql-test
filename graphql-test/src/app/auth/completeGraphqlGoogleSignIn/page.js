@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useMutation } from '@apollo/client';
 import { GOOGLE_LOGIN } from '/Users/a111/Desktop/graphql-test/graphql-test/src/app/queries/googleLogin';
 import { Button } from '@/components/ui/button';
@@ -10,14 +10,27 @@ import {RingLoader} from "react-spinners";
 export default function CompleteGoogleSignIn() {
     const router = useRouter()
     const [googleLogin, { data, loading, error }] = useMutation(GOOGLE_LOGIN);
-    const savedCode = localStorage.getItem('google_auth_code');
-    console.log('Saved Google auth code:', savedCode);
+    const [authCode, setAuthCode] = useState();
+
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+
+        if (code) {
+            console.log('Authorization code:', code);
+            setAuthCode(code)
+        } else {
+            console.error('No authorization code found in URL');
+        }
+    }, [router]);
+
+    console.log(authCode)
 
     const handleLogin = async () => {
         try {
             const { data } = await googleLogin({
                 variables: {
-                    code: "4/0AQlEd8yMWAhYBWIg2m7oZWLqY6dAra-6c_sxKszBvC00YyWhe-hI2jFz8X2GU-pUNnj8Bw",
+                    code: authCode,
                     platform: "ios"
                 }
             });
@@ -26,7 +39,6 @@ export default function CompleteGoogleSignIn() {
                 localStorage.setItem('accessToken', data.googleLogin.token.accessToken)
                 router.push('/user/sessions')
             }
-            // Здесь можете обработать ответ или выполнить перенаправление
         } catch (error) {
             console.error('Login error:', error);
         }
