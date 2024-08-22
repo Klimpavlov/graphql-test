@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_USER_INFO } from '/Users/a111/Desktop/graphql-test/graphql-test/src/app/queries/getUserInfo.js';
+import { GET_USER_INFO } from '@/app/queries/getUserInfo.js';
 import {Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import {RingLoader} from "react-spinners";

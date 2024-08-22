@@ -1,9 +1,9 @@
 'use client'
 import React from 'react';
 import { useLazyQuery } from '@apollo/client';
-import { GET_GOOGLE_LOGIN_LINK } from '/Users/a111/Desktop/graphql-test/graphql-test/src/app/queries/getGoogleLoginLink.js';
+import { GET_GOOGLE_LOGIN_LINK } from '@/app/queries/getGoogleLoginLink.js';
 import { Button } from '@/components/ui/button';
-import client from '/Users/a111/Desktop/graphql-test/graphql-test/src/lib/apolloClient.js';
+import client from '@/lib/apolloClient';
 import {RingLoader} from "react-spinners";
 
 export default function Home() {

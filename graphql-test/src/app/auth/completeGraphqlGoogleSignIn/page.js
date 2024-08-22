@@ -2,7 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import { useMutation } from '@apollo/client';
-import { GOOGLE_LOGIN } from '/Users/a111/Desktop/graphql-test/graphql-test/src/app/queries/googleLogin';
+import { GOOGLE_LOGIN } from '@/app/queries/googleLogin';
 import { Button } from '@/components/ui/button';
 import {useRouter} from "next/navigation";
 import {RingLoader} from "react-spinners";
