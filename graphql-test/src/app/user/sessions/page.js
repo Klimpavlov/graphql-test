@@ -6,10 +6,12 @@ import { GET_USER_INFO } from '@/app/queries/getUserInfo.js';
 import {Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import {RingLoader} from "react-spinners";
+import Cookies from 'js-cookie';
 
 
 export default function UserSessions() {
-    const accessToken = localStorage.getItem('accessToken')
+    // const accessToken = localStorage.getItem('accessToken');
+    const accessToken = Cookies.get('accessToken');
     const { data, loading, error, refetch } = useQuery(GET_USER_INFO, {
         context: {
             headers: {

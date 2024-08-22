@@ -1,10 +1,12 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { GOOGLE_LOGIN } from '@/app/queries/googleLogin';
 import { useRouter } from "next/navigation";
 import { RingLoader } from "react-spinners";
+import Cookies from 'js-cookie';
+
 
 export default function CompleteGoogleSignIn() {
     const router = useRouter();
@@ -25,7 +27,8 @@ export default function CompleteGoogleSignIn() {
             }).then(({ data }) => {
                 console.log('Login successful:', data);
                 if (data) {
-                    localStorage.setItem('accessToken', data.googleLogin.token.accessToken);
+                    // localStorage.setItem('accessToken', data.googleLogin.token.accessToken);
+                    Cookies.set('accessToken', data.googleLogin.token.accessToken, { secure: true, sameSite: 'strict' });
                     router.push('/user/sessions');
                 }
             }).catch(error => {
