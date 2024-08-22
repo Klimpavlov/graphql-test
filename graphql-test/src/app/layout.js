@@ -1,6 +1,6 @@
 import {Inter} from "next/font/google";
 import "./globals.css";
-import ApolloClientProvider from "/Users/a111/Desktop/graphql-test/graphql-test/src/lib/ApolloClientProvider.js";
+import ApolloClientProvider from "@/lib/ApolloClientProvider.js";
 
 const inter = Inter({subsets: ["latin"]});
 
